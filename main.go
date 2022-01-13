@@ -2,11 +2,16 @@ package main
 
 import (
 	dataChart "RandomProjectGolang/DataVisualization_Chart"
+	jsonRead "RandomProjectGolang/JsonFileParse"
 	"log"
 	"net/http"
 )
 
 func main() {
+
+	//TODO JSON FILE READ
+	jsonRead.ReadJsonFile() // Console print
+
 	//TODO WORD CLOUD CHART
 	http.HandleFunc("/word-cloud-chart", dataChart.CreateWordCloud)
 	//TODO LINE CHART WITH RANDOM DATA

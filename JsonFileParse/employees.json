@@ -1,0 +1,19 @@
+{
+  "employee": [
+    {
+      "name": "Faisal",
+      "gender": "Male",
+      "age": 40
+    },
+    {
+      "name": "Takrim",
+      "gender": "Male",
+      "age": 30
+    },
+    {
+      "name": "Jhon",
+      "gender": "Male",
+      "age": 20
+    }
+  ]
+}
