@@ -1,6 +1,7 @@
 package main
 
 import (
+	"RandomProjectGolang/CSV_FILES"
 	dataChart "RandomProjectGolang/DataVisualization_Chart"
 	jsonRead "RandomProjectGolang/JsonFileParse"
 	"log"
@@ -11,6 +12,15 @@ func main() {
 
 	//TODO JSON FILE READ
 	jsonRead.ReadJsonFile() // Console print
+	log.Println("---------------------------------------")
+
+	//TODO CREATE & WRITE CSV FILE
+	CSV_FILES.CreateCSVFileAndWrite()
+	log.Println("---------------------------------------")
+
+	//TODO READ FROM CSV FILE
+	CSV_FILES.ReadCSVFile() // Console print
+	log.Println("---------------------------------------")
 
 	//TODO WORD CLOUD CHART
 	http.HandleFunc("/word-cloud-chart", dataChart.CreateWordCloud)
