@@ -52,7 +52,7 @@ func ReadCSVFile() {
 	defer func(csvFile *os.File) {
 		err := csvFile.Close()
 		if err != nil {
-
+			log.Println(err)
 		}
 	}(csvFile)
 
