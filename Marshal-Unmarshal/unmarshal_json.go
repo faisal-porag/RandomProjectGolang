@@ -3,6 +3,7 @@ package Marshal_Unmarshal
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 )
 
 type Response struct {
@@ -15,7 +16,11 @@ func JsonUnmarshal() {
 	empJsonData := `{"Name":"George Smith","Age":30,"Address":"New york, USA"}`
 	empBytes := []byte(empJsonData)
 	var emp Response
-	json.Unmarshal(empBytes, &emp)
+	err := json.Unmarshal(empBytes, &emp)
+	if err != nil {
+		log.Println(err)
+		return
+	}
 	fmt.Println(emp.Name)
 	fmt.Println(emp.Age)
 	fmt.Println(emp.Address)
