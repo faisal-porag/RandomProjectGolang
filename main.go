@@ -4,6 +4,7 @@ import (
 	"RandomProjectGolang/CSV_FILES"
 	dataChart "RandomProjectGolang/DataVisualization_Chart"
 	jsonRead "RandomProjectGolang/JsonFileParse"
+	pdfGen "RandomProjectGolang/PDF_Generator"
 	"log"
 	"net/http"
 )
@@ -21,6 +22,12 @@ func main() {
 	//TODO READ FROM CSV FILE
 	CSV_FILES.ReadCSVFile() // Console print
 	log.Println("---------------------------------------")
+
+	//TODO GENERATE PDF FILE
+	pdfErr := pdfGen.GeneratePdf("test.pdf")
+	if pdfErr != nil {
+		log.Println(pdfErr)
+	}
 
 	//TODO WORD CLOUD CHART
 	http.HandleFunc("/word-cloud-chart", dataChart.CreateWordCloud)
