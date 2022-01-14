@@ -5,6 +5,7 @@ import (
 	dataChart "RandomProjectGolang/DataVisualization_Chart"
 	jsonRead "RandomProjectGolang/JsonFileParse"
 	pdfGen "RandomProjectGolang/PDF_Generator"
+	qrCode "RandomProjectGolang/QR_Code_Generator"
 	"log"
 	"net/http"
 )
@@ -37,6 +38,10 @@ func main() {
 	http.HandleFunc("/bar-chart", dataChart.CreateBarChart)
 	//TODO PIE CHART
 	http.HandleFunc("/pie-chart", dataChart.CreatePieChart)
+
+	//TODO QR CODE
+	http.HandleFunc("/create-qr-code", qrCode.CreateQRCode)
+	http.HandleFunc("/view-qr-code/", qrCode.ViewQRCode)
 
 	err := http.ListenAndServe(":8081", nil)
 	if err != nil {
