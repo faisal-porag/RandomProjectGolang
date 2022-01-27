@@ -3,7 +3,9 @@
 make http request, PDF generator, QR code and many more in single project ......
 
 First install all package by bellow command
->go get
+```
+go get
+```
 
 
 
