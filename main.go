@@ -11,6 +11,8 @@ import (
 )
 
 func main() {
+	
+	fmt.Println("Random services in GolLang")
 
 	//TODO JSON FILE READ
 	jsonRead.ReadJsonFile() // Console print
