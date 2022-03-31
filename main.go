@@ -6,6 +6,7 @@ import (
 	jsonRead "RandomProjectGolang/JsonFileParse"
 	pdfGen "RandomProjectGolang/PDF_Generator"
 	qrCode "RandomProjectGolang/QR_Code_Generator"
+	comp "RandomProjectGolang/composition"
 	"fmt"
 	"log"
 	"net/http"
@@ -32,6 +33,9 @@ func main() {
 	if pdfErr != nil {
 		log.Println(pdfErr)
 	}
+
+	//TODO GET COMPOSITION EXAMPLE RESULT
+	comp.CompositionFunc()
 
 	//TODO WORD CLOUD CHART
 	http.HandleFunc("/word-cloud-chart", dataChart.CreateWordCloud)
