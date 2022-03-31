@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os/exec"
 )
 
 func main() {
@@ -36,6 +37,14 @@ func main() {
 
 	//TODO GET COMPOSITION EXAMPLE RESULT
 	comp.CompositionFunc()
+
+	//TODO UUID GENERATOR
+	newUUID, err1 := exec.Command("uuidgen").Output()
+	if err1 != nil {
+		log.Fatal(err1)
+	}
+	fmt.Println("Generated UUID:")
+	fmt.Printf("%s", newUUID)
 
 	//TODO WORD CLOUD CHART
 	http.HandleFunc("/word-cloud-chart", dataChart.CreateWordCloud)
