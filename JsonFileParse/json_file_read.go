@@ -21,7 +21,7 @@ type Employee struct {
 func ReadJsonFile() {
 	jsonFile, err := os.Open("./JsonFileParse/employees.json")
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 	}
 
 	fmt.Println("Successfully Opened json file")
@@ -33,6 +33,7 @@ func ReadJsonFile() {
 
 	unmarshalErr := json.Unmarshal(byteEmpValue, &employees)
 	if unmarshalErr != nil {
+		log.Println(unmarshalErr)
 		return
 	}
 
