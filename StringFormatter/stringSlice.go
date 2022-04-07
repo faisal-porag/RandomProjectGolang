@@ -1,6 +1,9 @@
 package StringFormatter
 
-import "fmt"
+import (
+    "fmt"
+    "strings"
+)
 
 func StringSliceExample() {
 	numbers := make([]int, 3, 5)
@@ -24,4 +27,16 @@ func StringSliceExample() {
 	fmt.Printf("numbers=%v\n", numbers)
 	fmt.Printf("length=%d\n", len(numbers))
 	fmt.Printf("capacity=%d\n", cap(numbers))
+}
+
+
+func CheckSubString(totalString, subString string) bool {
+	//TODO EXAMPLE DATA
+	//fmt.Println(strings.Contains("MichaelJackson", "Michael"))
+    	//fmt.Println(strings.Contains("MillieBobbyBrown", "Bobby"))
+    	//fmt.Println(strings.Contains("AudreyGraham", "Drake"))
+    	//fmt.Println(strings.Contains("Jennifer Lopez", "JLo"))
+	
+	result := strings.Contains(totalString, subString)
+	return result
 }
