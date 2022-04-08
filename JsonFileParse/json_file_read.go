@@ -33,7 +33,7 @@ func ReadJsonFile() {
 
 	unmarshalErr := json.Unmarshal(byteEmpValue, &employees)
 	if unmarshalErr != nil {
-		log.Println(unmarshalErr)
+		log.Println("unmarshal error:",unmarshalErr)
 		return
 	}
 
