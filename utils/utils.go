@@ -41,5 +41,27 @@ func FindCurrentTimeWithTimeZone() {
   fmt.Println("currentTime : ", currentTime)
 }
 
+//TODO EXAMPLE
+  // define array of strings
+  //fruits := []string{"Mango", "Grapes", "Kiwi", "Apple", "Grapes"}
+  //fmt.Println("Array before removing duplicates : ", fruits)
+  //// Array after duplicates removal
+  //dulicatesRemovedArray := RemoveDuplicatesFromSlice(fruits)
+  //fmt.Println("Array after removing duplicates : ",  dulicatesRemovedArray)
+
+func RemoveDuplicatesFromSlice(intSlice []string) []string {
+  keys := make(map[string]bool)
+  list := []string{}
+  for _, entry := range intSlice {
+    if _, value := keys[entry]; !value {
+      keys[entry] = true
+      list = append(list, entry)
+    }
+  }
+ return list
+}
+
+
+
 
 
