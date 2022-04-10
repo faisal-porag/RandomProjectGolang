@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/Faisal-CSE/RandomProjectGolang/config"
 	"regexp"
+	"time"
 )
 
 //PinMinLength = 4
@@ -18,4 +19,17 @@ func ValidatePhoneNumber(number string) bool {
 
 func ValidatePinNumber(number string) bool {
 	return PinNumberRe.MatchString(number)
+}
+
+func IsTimeBetween2Times() bool {
+  currentTime := time.Now() 
+  // Time after 18 hours of currentTime
+  futureTime := time.Now().Add(time.Hour * 18) 
+  // Time after 10 hours of currentTime
+  intermediateTime := time.Now().Add(time.Hour * 10) 
+  if intermediateTime.After(currentTime) &&    intermediateTime.Before(futureTime) {
+    return true
+  } else {
+    return false
+  }
 }
