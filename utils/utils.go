@@ -5,6 +5,8 @@ import (
 	"github.com/Faisal-CSE/RandomProjectGolang/config"
 	"regexp"
 	"time"
+	"strings"
+   	"strconv"
 )
 
 //PinMinLength = 4
@@ -72,6 +74,18 @@ func ReverseSlice(a []int) []int {
 }
 
 
+//TODO EXAMPLE (Convert a slice to a comma-separated string)
+//result := ConvertSliceToString([]int{10, 20, 30, 40})
+//fmt.Println("Slice converted string : ", result)
+func ConvertSliceToString(input []int) string {
+   var output []string
+   for _, i := range input {
+      output = append(output, strconv.Itoa(i))
+   }
+   return strings.Join(output, ",")
+}
+//output:
+//Slice converted string :  10,20,30,40
 
 
 
