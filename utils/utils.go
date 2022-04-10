@@ -102,3 +102,45 @@ func ConvertToSnakeCase(input string) string {
 //String in snake case :  i_like_programming_in_go123
 
 
+
+func DateTimeFormatExample() {
+	now := time.Now()
+	fmt.Println(now) // 2009-11-10 23:00:00 +0000 UTC m=+0.000000001
+	fmt.Println(now.Format("20060102150405"))
+	fmt.Println(now.Format("2006/01/02/15/04/05"))
+	fmt.Println(now.Format("2006-01-02 15:04:05"))
+	fmt.Println(now.Format("2006-01-02 15:04"))
+	fmt.Println(now.Format("2006/01/02 15:04:05"))
+	fmt.Println(now.Format("2006/01/02 15:04:05 (-0700)"))
+	fmt.Println(now.Format("2006年01月02日 15:04"))
+	fmt.Println(now.Format("2006-02-01"))
+	fmt.Println(now.Format(time.Layout))   // 01/02 03:04:05PM '06 -0700
+	fmt.Println(now.Format(time.ANSIC))    // Mon Jan _2 15:04:05 2006
+	fmt.Println(now.Format(time.UnixDate)) // Mon Jan _2 15:04:05 MST 2006
+	fmt.Println(now.Format(time.RubyDate)) // Mon Jan 02 15:04:05 -0700 2006
+	fmt.Println(now.Format(time.RFC822))   // 02 Jan 06 15:04 MST
+	fmt.Println(now.Format(time.RFC850))   // Monday, 02-Jan-06 15:04:05 MST
+	fmt.Println(now.Format(time.Kitchen))  // 3:04PM
+	fmt.Println(now.Format(time.Stamp))    // Jan _2 15:04:05
+	
+	currentTime := time.Now()
+	fmt.Println("Current Time in String: ", currentTime.String())
+    	fmt.Println("MM-DD-YYYY : ", currentTime.Format("01-02-2006"))
+    	fmt.Println("YYYY-MM-DD : ", currentTime.Format("2006-01-02"))
+    	fmt.Println("YYYY.MM.DD : ", currentTime.Format("2006.01.02 15:04:05"))
+    	fmt.Println("YYYY#MM#DD {Special Character} : ", currentTime.Format("2006#01#02"))
+    	fmt.Println("YYYY-MM-DD hh:mm:ss : ", currentTime.Format("2006-01-02 15:04:05"))
+    	fmt.Println("Time with MicroSeconds: ", currentTime.Format("2006-01-02 15:04:05.000000"))
+    	fmt.Println("Time with NanoSeconds: ", currentTime.Format("2006-01-02 15:04:05.000000000"))
+    	fmt.Println("ShortNum Month : ", currentTime.Format("2006-1-02"))
+    	fmt.Println("LongMonth : ", currentTime.Format("2006-January-02"))
+    	fmt.Println("ShortMonth : ", currentTime.Format("2006-Jan-02"))
+    	fmt.Println("ShortYear : ", currentTime.Format("06-Jan-02"))
+    	fmt.Println("LongWeekDay : ", currentTime.Format("2006-01-02 15:04:05 Monday"))
+    	fmt.Println("ShortWeek Day : ", currentTime.Format("2006-01-02 Mon"))
+    	fmt.Println("ShortDay : ", currentTime.Format("Mon 2006-01-2"))
+    	fmt.Println("Short Hour Minute Second: ", currentTime.Format("2006-01-02 3:4:5")) 
+    	fmt.Println("Short Hour Minute Second: ", currentTime.Format("2006-01-02 3:4:5 PM"))  
+    	fmt.Println("Short Hour Minute Second: ", currentTime.Format("2006-01-02 3:4:5 pm")) 
+}
+
