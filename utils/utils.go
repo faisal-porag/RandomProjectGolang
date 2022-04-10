@@ -62,6 +62,16 @@ func RemoveDuplicatesFromSlice(intSlice []string) []string {
 }
 
 
+//Reverse an array
+func ReverseSlice(a []int) []int {
+  for i := len(a)/2 - 1; i >= 0; i-- {
+   pos := len(a) - 1 - i
+   a[i], a[pos] = a[pos], a[i]
+}
+ return a
+}
+
+
 
 
 
