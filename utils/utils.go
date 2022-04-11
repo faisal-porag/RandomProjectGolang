@@ -169,3 +169,23 @@ func binarySearch(needle int, haystack []int) bool {
 
 	return true
 }
+
+
+func EnglishTOBanglaNumber() {
+	var finalEnlishToBanglaNumber = map[string]string{
+		"0": "০",
+		"1": "১",
+		"2": "২",
+		"3": "৩",
+		"4": "৪",
+		"5": "৫",
+		"6": "৬",
+		"7": "৭",
+		"8": "৮",
+		"9": "৯",
+	}
+
+	for _, v := range finalEnlishToBanglaNumber {
+		fmt.Println(v)
+	}
+}
