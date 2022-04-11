@@ -189,3 +189,27 @@ func EnglishTOBanglaNumber() {
 		fmt.Println(v)
 	}
 }
+
+
+func ParseFlight(s string) (letters, numbers string) {
+	var l, n []rune
+	for _, r := range s {
+		switch {
+		case r >= 'A' && r <= 'Z':
+			l = append(l, r)
+		case r >= 'a' && r <= 'z':
+			l = append(l, r)
+		case r >= '0' && r <= '9':
+			n = append(n, r)
+		}
+	}
+	return string(l), string(n)
+}
+
+func GetParseFLightResult()  {
+	flights := []string{"AB1234", "ABC1234", "ABC123", "AB12"}
+	for _, flight := range flights {
+		letters, numbers := ParseFlight(flight)
+		fmt.Printf("%q: %q %q\n", flight, letters, numbers)
+	}
+}
