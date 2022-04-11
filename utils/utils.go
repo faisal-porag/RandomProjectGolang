@@ -213,3 +213,21 @@ func GetParseFLightResult()  {
 		fmt.Printf("%q: %q %q\n", flight, letters, numbers)
 	}
 }
+
+
+func GetAllPossibleSubstringCombinationOfAString() {
+	value := "abcdefghi"
+
+	// Convert to rune slice for substrings.
+	runes := []rune(value)
+
+	// Loop over possible lengths, and possible start indexes.
+	// ... Then take each possible substring from the source string.
+	for length := 1; length < len(runes); length++ {
+		for start := 0; start <= len(runes)-length; start++ {
+			substring := string(runes[start : start+length])
+			fmt.Println(substring)
+		}
+		//break
+	}
+}
