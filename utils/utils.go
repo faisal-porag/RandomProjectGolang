@@ -286,3 +286,8 @@ func AddArrayDataWithCommaSeparatorString() {
     // space after comma
     fmt.Println(strings.Join(foodItems, ", "))
 }
+
+func DateFormatV2() {
+    current := time.Now().UTC()
+    fmt.Println(current.Format("2006 Jan 02"))
+}
