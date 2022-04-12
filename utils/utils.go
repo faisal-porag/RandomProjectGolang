@@ -279,3 +279,10 @@ func TrimingExample() {
     fmt.Println("Result 1: ", res1)
     fmt.Println("Result 2:", res2)
 }
+
+
+func AddArrayDataWithCommaSeparatorString() {
+    foodItems := []string{"pizza", "pasta", "sushi", "pho", "tikka masala"}
+    // space after comma
+    fmt.Println(strings.Join(foodItems, ", "))
+}
