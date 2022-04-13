@@ -343,6 +343,7 @@ func LoopsInArray() {
 }
 
 func CheckStringHasSpecificSubString(source, data string) bool {
+    // Example code to check
     //dataA := "Javascript"
     //ldataB := "Golang"
 
