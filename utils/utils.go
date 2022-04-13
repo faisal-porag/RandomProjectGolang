@@ -341,3 +341,22 @@ func LoopsInArray() {
 		j++
 	}
 }
+
+func CheckStringHasSpecificSubString(source, data string) bool {
+    //dataA := "Javascript"
+    //ldataB := "Golang"
+
+    //source := "this is a Golang"
+
+    //if strings.Contains(source, dataA) {
+        //fmt.Println("JavaScript")
+   // }
+
+    //if strings.Contains(source, dataB) {
+        //fmt.Println("Golang")
+    //}
+	
+     return strings.Contains(source, data)
+}
+
+
