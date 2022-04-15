@@ -10,7 +10,7 @@ func ShowTransactionId(trnxID string) string {
 		return trnxID[0:10] //RETURN 1ST 10 CHARACTER
 	}
 
-	return ""
+	return trnxID
 }
 
 
