@@ -33,6 +33,7 @@ func JsonToStruct() {
 	var basket FruitBasket1
 	err := json.Unmarshal(jsonData, &basket)
 	if err != nil {
+                log.Println("unmarshal error occurred!")
 		log.Println(err)
 	}
 
