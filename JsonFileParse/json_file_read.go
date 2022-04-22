@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"os"
 	"strconv"
 )
@@ -33,7 +34,7 @@ func ReadJsonFile() {
 
 	unmarshalErr := json.Unmarshal(byteEmpValue, &employees)
 	if unmarshalErr != nil {
-		log.Println("unmarshal error:",unmarshalErr)
+		log.Println("unmarshal error:", unmarshalErr)
 		return
 	}
 
