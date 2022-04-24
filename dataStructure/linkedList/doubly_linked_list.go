@@ -133,3 +133,27 @@ func DoublyLinkedListExample() {
 		fmt.Println(err.Error())
 	}
 }
+
+/*NOTE:
+
+OUTPUT:
+
+Add Front Node: C
+Add Front Node: B
+Add Front Node: A
+Add End Node: D
+Add End Node: E
+Size of doubly linked ist: 5
+value = A, prev = , next = &{B 0xc000070060 0xc000070020}
+value = B, prev = &{A  0xc000070040}, next = &{C 0xc000070040 0xc000070080}
+value = C, prev = &{B 0xc000070060 0xc000070020}, next = &{D 0xc000070020 0xc0000700a0}
+value = D, prev = &{C 0xc000070040 0xc000070080}, next = &{E 0xc000070080 }
+value = E, prev = &{D 0xc000070020 0xc0000700a0}, next = 
+
+value = E, prev = &{D 0xc000070020 0xc0000700a0}, next = 
+value = D, prev = &{C 0xc000070040 0xc000070080}, next = &{E 0xc000070080 }
+value = C, prev = &{B 0xc000070060 0xc000070020}, next = &{D 0xc000070020 0xc0000700a0}
+value = B, prev = &{A  0xc000070040}, next = &{C 0xc000070040 0xc000070080}
+value = A, prev = , next = &{B 0xc000070060 0xc000070020}
+
+*/
