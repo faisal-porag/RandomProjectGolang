@@ -54,7 +54,8 @@ func SliceImplementationExample() {
 	customQueue.Enqueue("B")
 	fmt.Printf("Len: %d\n", customQueue.Size())
 
-	for customQueue.Size() > 0 {
+	// If size greater than zero
+        for customQueue.Size() > 0 {
 		frontVal, _ := customQueue.Front()
 		fmt.Printf("Front: %s\n", frontVal)
 		fmt.Printf("Dequeue: %s\n", frontVal)
