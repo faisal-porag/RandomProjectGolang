@@ -44,3 +44,27 @@ func insertionSort(arr []int) {
         fmt.Println(val)
     }
 }
+
+/*
+OUTPUT:
+After Sorting
+1
+2
+3
+4
+5
+
+After Sorting
+-3
+-1
+1
+2
+3
+4
+5
+7
+8
+
+*/
+
+
