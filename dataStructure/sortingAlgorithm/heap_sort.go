@@ -3,6 +3,8 @@ package sortingAlgorithm
 import "fmt"
 
 /*
+Introduction:
+
 HeapSort is a comparison-based sorting algorithm that uses the Heap Data Structure. Please refer to this link for 
 more information about Heap – 'https://golangbyexample.com/heap-in-golang/'
 
