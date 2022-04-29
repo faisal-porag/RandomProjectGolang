@@ -3,7 +3,8 @@ package sortingAlgorithm
 import "fmt"
 
 /*
-Introduction
+Introduction:
+--------------
 In bubble sort:
 
 In each iteration i (starting with 0) , we start from first element and repeatedly swap adjacent elements if in 
