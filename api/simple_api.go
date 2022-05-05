@@ -8,6 +8,8 @@ import (
 	"github.com/gorilla/mux"
 )
 
+//Simple API creation example
+
 func homeLink(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Welcome home!")
 }
