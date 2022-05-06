@@ -17,5 +17,6 @@ func handleRequests() {
 }
 
 func SimpleAPIV1Example() {
+    //Call handler function
     handleRequests()
 }
