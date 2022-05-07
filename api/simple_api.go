@@ -92,5 +92,7 @@ func SimpleAPIExample() {
 	router.HandleFunc("/event", createEvent).Methods("POST")
 	router.HandleFunc("/events", getAllEvents).Methods("GET")
 	router.HandleFunc("/events/{id}", getOneEvent).Methods("GET")
+	router.HandleFunc("/events/{id}", updateEvent).Methods("PATCH")
+	
 	log.Fatal(http.ListenAndServe(":8084", router))
 }
