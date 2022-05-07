@@ -71,6 +71,7 @@ func updateEvent(w http.ResponseWriter, r *http.Request) {
 
 	reqBody, err := ioutil.ReadAll(r.Body)
 	if err != nil {
+		log.Println("event request body resd err: ", err)
 		fmt.Fprintf(w, "Kindly enter data with the event title and description only in order to update")
 	}
 	json.Unmarshal(reqBody, &updatedEvent)
