@@ -28,10 +28,12 @@ var events = allEvents{
 	},
 }
 
+//Home page endpoint
 func homeLink(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Welcome home!")
 }
 
+//Create new event endpoint
 func createEvent(w http.ResponseWriter, r *http.Request) {
 	var newEvent event
 	reqBody, err := ioutil.ReadAll(r.Body)
@@ -46,6 +48,7 @@ func createEvent(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(newEvent)
 }
 
+//Get single event by ID endpoint
 func getOneEvent(w http.ResponseWriter, r *http.Request) {
 	eventID := mux.Vars(r)["id"]
 
@@ -56,10 +59,16 @@ func getOneEvent(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+//Get all events end point
+func getAllEvents(w http.ResponseWriter, r *http.Request) {
+	json.NewEncoder(w).Encode(events)
+}
+
 func SimpleAPIExample() {
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", homeLink)
 	router.HandleFunc("/event", createEvent).Methods("POST")
+	router.HandleFunc("/events", getAllEvents).Methods("GET")
 	router.HandleFunc("/events/{id}", getOneEvent).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8084", router))
 }
