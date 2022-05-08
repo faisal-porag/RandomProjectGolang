@@ -99,6 +99,7 @@ func deleteEvent(w http.ResponseWriter, r *http.Request) {
 }
 
 func SimpleAPIExample() {
+	//initEvents()
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", homeLink)
 	router.HandleFunc("/event", createEvent).Methods("POST")
