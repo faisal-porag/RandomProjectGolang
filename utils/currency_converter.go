@@ -183,9 +183,9 @@ type CurrencyConverterStruct struct {
 	} `json:"rates"`
 }
 
-/*
-func GetCurrency() (*CurrencyConverterStruct, error, int) {
 
+func GetCurrency() (*CurrencyConverterStruct, error, int) {
+	//currency converter API
 	req, err := http.NewRequest("GET", "https://api.exchangerate-api.com/v4/latest/USD", nil)
 	if err != nil {
 		log.Println("req bind failure: ", err)
@@ -213,5 +213,5 @@ func GetCurrency() (*CurrencyConverterStruct, error, int) {
 	fmt.Println(result.Rates.BDT)
 	return result, nil, res.StatusCode
 }
-*/
+
 
