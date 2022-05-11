@@ -17,7 +17,7 @@ type Earthquake struct {
 
 var arrayEarthquake []*Earthquake
 
-/*
+
 func PostScrapeDataV3() []*Earthquake {
 	doc, err := goquery.NewDocument("http://www.bmkg.go.id/gempabumi/gempabumi-terkini.bmkg")
 	if err != nil {
@@ -50,14 +50,14 @@ func PostScrapeDataV3() []*Earthquake {
 
 	return arrayEarthquake
 }
-*/
+
 
 func WebpageScrapingVersion3() {
-	/*data := PostScrapeDataV3()
+	data := PostScrapeDataV3()
 	if len(data) > 0 {
 		for i := 0; i < len(data); i++ {
 			fmt.Println(data[i])
 		}
-	}*/
+	}
 }
 
