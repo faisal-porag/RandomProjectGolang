@@ -8,7 +8,7 @@ import (
 	"log"
 	"net/http"
 )
-/*
+
 func WebPageScrapingVersion4() {
 	// the above code
 
@@ -47,4 +47,4 @@ func WebPageScrapingVersion4() {
 	})
 
 }
-*/
+
