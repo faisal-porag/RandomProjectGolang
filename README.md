@@ -7,7 +7,3 @@ First install all package by bellow command
 go get
 ```
 
-
-
-### Faisal Porag
-    Software Engineer
