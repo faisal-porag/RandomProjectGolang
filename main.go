@@ -7,6 +7,7 @@ import (
 	pdfGen "RandomProjectGolang/PDF_Generator"
 	qrCode "RandomProjectGolang/QR_Code_Generator"
 	comp "RandomProjectGolang/composition"
+	"RandomProjectGolang/utils"
 	"fmt"
 	"log"
 	"net/http"
@@ -45,6 +46,13 @@ func main() {
 	}
 	fmt.Println("Generated UUID:")
 	fmt.Printf("%s", newUUID)
+
+	//TODO GenerateUlidID
+	id := utils.GenerateUlidID()
+	fmt.Println(id)
+
+	isValid := utils.ValidatePinNumber("878")
+	log.Println(isValid)
 
 	//TODO WORD CLOUD CHART
 	http.HandleFunc("/word-cloud-chart", dataChart.CreateWordCloud)

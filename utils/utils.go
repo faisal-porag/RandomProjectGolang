@@ -1,12 +1,12 @@
 package utils
 
 import (
+	"RandomProjectGolang/config"
 	"fmt"
-	"github.com/Faisal-CSE/RandomProjectGolang/config"
 	"regexp"
-	"time"
+	"strconv"
 	"strings"
-   	"strconv"
+	"time"
 )
 
 //PinMinLength = 4
@@ -24,84 +24,81 @@ func ValidatePinNumber(number string) bool {
 }
 
 func IsTimeBetween2Times() bool {
-  currentTime := time.Now() 
-  // Time after 18 hours of currentTime
-  futureTime := time.Now().Add(time.Hour * 18) 
-  // Time after 10 hours of currentTime
-  intermediateTime := time.Now().Add(time.Hour * 10) 
-  if intermediateTime.After(currentTime) &&    intermediateTime.Before(futureTime) {
-    return true
-  } else {
-    return false
-  }
+	currentTime := time.Now()
+	// Time after 18 hours of currentTime
+	futureTime := time.Now().Add(time.Hour * 18)
+	// Time after 10 hours of currentTime
+	intermediateTime := time.Now().Add(time.Hour * 10)
+	if intermediateTime.After(currentTime) && intermediateTime.Before(futureTime) {
+		return true
+	} else {
+		return false
+	}
 }
 
 func FindCurrentTimeWithTimeZone() {
-  timeZone := "Asia/Kolkata" // timezone value
-  loc, _ := time.LoadLocation(timeZone)
-  currentTime = time.Now().In(loc)
-  fmt.Println("currentTime : ", currentTime)
+	timeZone := "Asia/Kolkata" // timezone value
+	loc, _ := time.LoadLocation(timeZone)
+	currentTime := time.Now().In(loc)
+	fmt.Println("currentTime : ", currentTime)
 }
 
 //TODO EXAMPLE
-  // define array of strings
-  //fruits := []string{"Mango", "Grapes", "Kiwi", "Apple", "Grapes"}
-  //fmt.Println("Array before removing duplicates : ", fruits)
-  //// Array after duplicates removal
-  //dulicatesRemovedArray := RemoveDuplicatesFromSlice(fruits)
-  //fmt.Println("Array after removing duplicates : ",  dulicatesRemovedArray)
+// define array of strings
+//fruits := []string{"Mango", "Grapes", "Kiwi", "Apple", "Grapes"}
+//fmt.Println("Array before removing duplicates : ", fruits)
+//// Array after duplicates removal
+//dulicatesRemovedArray := RemoveDuplicatesFromSlice(fruits)
+//fmt.Println("Array after removing duplicates : ",  dulicatesRemovedArray)
 
 func RemoveDuplicatesFromSlice(intSlice []string) []string {
-  keys := make(map[string]bool)
-  list := []string{}
-  for _, entry := range intSlice {
-    if _, value := keys[entry]; !value {
-      keys[entry] = true
-      list = append(list, entry)
-    }
-  }
- return list
+	keys := make(map[string]bool)
+	list := []string{}
+	for _, entry := range intSlice {
+		if _, value := keys[entry]; !value {
+			keys[entry] = true
+			list = append(list, entry)
+		}
+	}
+	return list
 }
-
 
 //Reverse an array
 func ReverseSlice(a []int) []int {
-  for i := len(a)/2 - 1; i >= 0; i-- {
-   pos := len(a) - 1 - i
-   a[i], a[pos] = a[pos], a[i]
+	for i := len(a)/2 - 1; i >= 0; i-- {
+		pos := len(a) - 1 - i
+		a[i], a[pos] = a[pos], a[i]
+	}
+	return a
 }
- return a
-}
-
 
 //TODO EXAMPLE (Convert a slice to a comma-separated string)
 //result := ConvertSliceToString([]int{10, 20, 30, 40})
 //fmt.Println("Slice converted string : ", result)
 func ConvertSliceToString(input []int) string {
-   var output []string
-   for _, i := range input {
-      output = append(output, strconv.Itoa(i))
-   }
-   return strings.Join(output, ",")
+	var output []string
+	for _, i := range input {
+		output = append(output, strconv.Itoa(i))
+	}
+	return strings.Join(output, ",")
 }
+
 //output:
 //Slice converted string :  10,20,30,40
 
-
 //Convert given string to snake_case
 func ConvertToSnakeCase(input string) string {
-  var matchChars = regexp.MustCompile("(.)([A-Z][a-z]+)")
-  var matchAlpha = regexp.MustCompile("([a-z0-9])([A-Z])")
-  
-  snake := matchChars.ReplaceAllString(input, "${1}_${2}")
-  snake = matchAlpha.ReplaceAllString(snake, "${1}_${2}")
-  return strings.ToLower(snake)
+	var matchChars = regexp.MustCompile("(.)([A-Z][a-z]+)")
+	var matchAlpha = regexp.MustCompile("([a-z0-9])([A-Z])")
+
+	snake := matchChars.ReplaceAllString(input, "${1}_${2}")
+	snake = matchAlpha.ReplaceAllString(snake, "${1}_${2}")
+	return strings.ToLower(snake)
 }
+
 //input: ILikeProgrammingINGo123
 //output:
 //String in snake case :  i_like_programming_in_go123
-
-
 
 func DateTimeFormatExample() {
 	now := time.Now()
@@ -114,7 +111,7 @@ func DateTimeFormatExample() {
 	fmt.Println(now.Format("2006/01/02 15:04:05 (-0700)"))
 	fmt.Println(now.Format("2006年01月02日 15:04"))
 	fmt.Println(now.Format("2006-02-01"))
-	fmt.Println(now.Format(time.Layout))   // 01/02 03:04:05PM '06 -0700
+	fmt.Println(now.Format(time.RFC822))   // 01/02 03:04:05PM '06 -0700
 	fmt.Println(now.Format(time.ANSIC))    // Mon Jan _2 15:04:05 2006
 	fmt.Println(now.Format(time.UnixDate)) // Mon Jan _2 15:04:05 MST 2006
 	fmt.Println(now.Format(time.RubyDate)) // Mon Jan 02 15:04:05 -0700 2006
@@ -122,28 +119,27 @@ func DateTimeFormatExample() {
 	fmt.Println(now.Format(time.RFC850))   // Monday, 02-Jan-06 15:04:05 MST
 	fmt.Println(now.Format(time.Kitchen))  // 3:04PM
 	fmt.Println(now.Format(time.Stamp))    // Jan _2 15:04:05
-	
+
 	currentTime := time.Now()
 	fmt.Println("Current Time in String: ", currentTime.String())
-    	fmt.Println("MM-DD-YYYY : ", currentTime.Format("01-02-2006"))
-    	fmt.Println("YYYY-MM-DD : ", currentTime.Format("2006-01-02"))
-    	fmt.Println("YYYY.MM.DD : ", currentTime.Format("2006.01.02 15:04:05"))
-    	fmt.Println("YYYY#MM#DD {Special Character} : ", currentTime.Format("2006#01#02"))
-    	fmt.Println("YYYY-MM-DD hh:mm:ss : ", currentTime.Format("2006-01-02 15:04:05"))
-    	fmt.Println("Time with MicroSeconds: ", currentTime.Format("2006-01-02 15:04:05.000000"))
-    	fmt.Println("Time with NanoSeconds: ", currentTime.Format("2006-01-02 15:04:05.000000000"))
-    	fmt.Println("ShortNum Month : ", currentTime.Format("2006-1-02"))
-    	fmt.Println("LongMonth : ", currentTime.Format("2006-January-02"))
-    	fmt.Println("ShortMonth : ", currentTime.Format("2006-Jan-02"))
-    	fmt.Println("ShortYear : ", currentTime.Format("06-Jan-02"))
-    	fmt.Println("LongWeekDay : ", currentTime.Format("2006-01-02 15:04:05 Monday"))
-    	fmt.Println("ShortWeek Day : ", currentTime.Format("2006-01-02 Mon"))
-    	fmt.Println("ShortDay : ", currentTime.Format("Mon 2006-01-2"))
-    	fmt.Println("Short Hour Minute Second: ", currentTime.Format("2006-01-02 3:4:5")) 
-    	fmt.Println("Short Hour Minute Second: ", currentTime.Format("2006-01-02 3:4:5 PM"))  
-    	fmt.Println("Short Hour Minute Second: ", currentTime.Format("2006-01-02 3:4:5 pm")) 
+	fmt.Println("MM-DD-YYYY : ", currentTime.Format("01-02-2006"))
+	fmt.Println("YYYY-MM-DD : ", currentTime.Format("2006-01-02"))
+	fmt.Println("YYYY.MM.DD : ", currentTime.Format("2006.01.02 15:04:05"))
+	fmt.Println("YYYY#MM#DD {Special Character} : ", currentTime.Format("2006#01#02"))
+	fmt.Println("YYYY-MM-DD hh:mm:ss : ", currentTime.Format("2006-01-02 15:04:05"))
+	fmt.Println("Time with MicroSeconds: ", currentTime.Format("2006-01-02 15:04:05.000000"))
+	fmt.Println("Time with NanoSeconds: ", currentTime.Format("2006-01-02 15:04:05.000000000"))
+	fmt.Println("ShortNum Month : ", currentTime.Format("2006-1-02"))
+	fmt.Println("LongMonth : ", currentTime.Format("2006-January-02"))
+	fmt.Println("ShortMonth : ", currentTime.Format("2006-Jan-02"))
+	fmt.Println("ShortYear : ", currentTime.Format("06-Jan-02"))
+	fmt.Println("LongWeekDay : ", currentTime.Format("2006-01-02 15:04:05 Monday"))
+	fmt.Println("ShortWeek Day : ", currentTime.Format("2006-01-02 Mon"))
+	fmt.Println("ShortDay : ", currentTime.Format("Mon 2006-01-2"))
+	fmt.Println("Short Hour Minute Second: ", currentTime.Format("2006-01-02 3:4:5"))
+	fmt.Println("Short Hour Minute Second: ", currentTime.Format("2006-01-02 3:4:5 PM"))
+	fmt.Println("Short Hour Minute Second: ", currentTime.Format("2006-01-02 3:4:5 pm"))
 }
-
 
 //TODO EXAMPLE (binarySearch)
 //items := []int{1,2, 9, 20, 31, 45, 63, 70, 100}
@@ -153,12 +149,12 @@ func binarySearch(needle int, haystack []int) bool {
 	low := 0
 	high := len(haystack) - 1
 
-	for low <= high{
+	for low <= high {
 		median := (low + high) / 2
 
 		if haystack[median] < needle {
 			low = median + 1
-		}else{
+		} else {
 			high = median - 1
 		}
 	}
@@ -169,7 +165,6 @@ func binarySearch(needle int, haystack []int) bool {
 
 	return true
 }
-
 
 func EnglishTOBanglaNumber() {
 	var finalEnlishToBanglaNumber = map[string]string{
@@ -190,7 +185,6 @@ func EnglishTOBanglaNumber() {
 	}
 }
 
-
 func ParseFlight(s string) (letters, numbers string) {
 	var l, n []rune
 	for _, r := range s {
@@ -206,14 +200,13 @@ func ParseFlight(s string) (letters, numbers string) {
 	return string(l), string(n)
 }
 
-func GetParseFLightResult()  {
+func GetParseFLightResult() {
 	flights := []string{"AB1234", "ABC1234", "ABC123", "AB12"}
 	for _, flight := range flights {
 		letters, numbers := ParseFlight(flight)
 		fmt.Printf("%q: %q %q\n", flight, letters, numbers)
 	}
 }
-
 
 func GetAllPossibleSubstringCombinationOfAString() {
 	value := "abcdefghi"
@@ -233,63 +226,62 @@ func GetAllPossibleSubstringCombinationOfAString() {
 }
 
 func SplitingExample() {
-    // Creating and initializing the strings
-    str1 := "Welcome, to the, online portal, of GeeksforGeeks"
-    str2 := "My dog name is Dollar"
-    str3 := "I like to play Ludo"
- 
-    // Displaying strings
-    fmt.Println("String 1: ", str1)
-    fmt.Println("String 2: ", str2)
-    fmt.Println("String 3: ", str3)
- 
-    // Splitting the given strings
-    // Using SplitAfterN() function
-    res1 := strings.SplitAfterN(str1, ",", 2)
-    res2 := strings.SplitAfterN(str2, "", 4)
-    res3 := strings.SplitAfterN(str3, "!", 1)
-    res4 := strings.SplitAfterN("", "GeeksforGeeks, geeks", 3)
- 
-    // Displaying the result
-    fmt.Println("\nResult 1: ", res1)
-    fmt.Println("Result 2: ", res2)
-    fmt.Println("Result 3: ", res3)
-    fmt.Println("Result 4: ", res4)
- 
+	// Creating and initializing the strings
+	str1 := "Welcome, to the, online portal, of GeeksforGeeks"
+	str2 := "My dog name is Dollar"
+	str3 := "I like to play Ludo"
+
+	// Displaying strings
+	fmt.Println("String 1: ", str1)
+	fmt.Println("String 2: ", str2)
+	fmt.Println("String 3: ", str3)
+
+	// Splitting the given strings
+	// Using SplitAfterN() function
+	res1 := strings.SplitAfterN(str1, ",", 2)
+	res2 := strings.SplitAfterN(str2, "", 4)
+	res3 := strings.SplitAfterN(str3, "!", 1)
+	res4 := strings.SplitAfterN("", "GeeksforGeeks, geeks", 3)
+
+	// Displaying the result
+	fmt.Println("\nResult 1: ", res1)
+	fmt.Println("Result 2: ", res2)
+	fmt.Println("Result 3: ", res3)
+	fmt.Println("Result 4: ", res4)
+
 }
 
 func TrimingExample() {
-    // Creating and initializing string
-    // Using shorthand declaration
-    str1 := "!!Welcome to GeeksforGeeks !!"
-    str2 := "@@This is the tutorial of Golang$$"
-  
-    // Displaying strings
-    fmt.Println("Strings before trimming:")
-    fmt.Println("String 1: ", str1)
-    fmt.Println("String 2:", str2)
-  
-    // Trimming the given strings
-    // Using Trim() function
-    res1 := strings.Trim(str1, "!")
-    res2 := strings.Trim(str2, "@$")
-  
-    // Displaying the results
-    fmt.Println("\nStrings after trimming:")
-    fmt.Println("Result 1: ", res1)
-    fmt.Println("Result 2:", res2)
+	// Creating and initializing string
+	// Using shorthand declaration
+	str1 := "!!Welcome to GeeksforGeeks !!"
+	str2 := "@@This is the tutorial of Golang$$"
+
+	// Displaying strings
+	fmt.Println("Strings before trimming:")
+	fmt.Println("String 1: ", str1)
+	fmt.Println("String 2:", str2)
+
+	// Trimming the given strings
+	// Using Trim() function
+	res1 := strings.Trim(str1, "!")
+	res2 := strings.Trim(str2, "@$")
+
+	// Displaying the results
+	fmt.Println("\nStrings after trimming:")
+	fmt.Println("Result 1: ", res1)
+	fmt.Println("Result 2:", res2)
 }
 
-
 func AddArrayDataWithCommaSeparatorString() {
-    foodItems := []string{"pizza", "pasta", "sushi", "pho", "tikka masala"}
-    // space after comma
-    fmt.Println(strings.Join(foodItems, ", "))
+	foodItems := []string{"pizza", "pasta", "sushi", "pho", "tikka masala"}
+	// space after comma
+	fmt.Println(strings.Join(foodItems, ", "))
 }
 
 func DateFormatV2() {
-    current := time.Now().UTC()
-    fmt.Println(current.Format("2006 Jan 02"))
+	current := time.Now().UTC()
+	fmt.Println(current.Format("2006 Jan 02"))
 }
 
 func ValidDateChecker() {
@@ -343,21 +335,19 @@ func LoopsInArray() {
 }
 
 func CheckStringHasSpecificSubString(source, data string) bool {
-    // Example code to check
-    //dataA := "Javascript"
-    //ldataB := "Golang"
+	// Example code to check
+	//dataA := "Javascript"
+	//ldataB := "Golang"
 
-    //source := "this is a Golang"
+	//source := "this is a Golang"
 
-    //if strings.Contains(source, dataA) {
-        //fmt.Println("JavaScript")
-   // }
+	//if strings.Contains(source, dataA) {
+	//fmt.Println("JavaScript")
+	// }
 
-    //if strings.Contains(source, dataB) {
-        //fmt.Println("Golang")
-    //}
-	
-     return strings.Contains(source, data)
+	//if strings.Contains(source, dataB) {
+	//fmt.Println("Golang")
+	//}
+
+	return strings.Contains(source, data)
 }
-
-
