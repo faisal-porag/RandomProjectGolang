@@ -63,7 +63,7 @@ func RemoveDuplicatesFromSlice(intSlice []string) []string {
 	return list
 }
 
-//Reverse an array
+// ReverseSlice Reverse an array
 func ReverseSlice(a []int) []int {
 	for i := len(a)/2 - 1; i >= 0; i-- {
 		pos := len(a) - 1 - i
@@ -72,7 +72,7 @@ func ReverseSlice(a []int) []int {
 	return a
 }
 
-//TODO EXAMPLE (Convert a slice to a comma-separated string)
+// ConvertSliceToString TODO EXAMPLE (Convert a slice to a comma-separated string)
 //result := ConvertSliceToString([]int{10, 20, 30, 40})
 //fmt.Println("Slice converted string : ", result)
 func ConvertSliceToString(input []int) string {
@@ -86,7 +86,7 @@ func ConvertSliceToString(input []int) string {
 //output:
 //Slice converted string :  10,20,30,40
 
-//Convert given string to snake_case
+// ConvertToSnakeCase Convert given string to snake_case
 func ConvertToSnakeCase(input string) string {
 	var matchChars = regexp.MustCompile("(.)([A-Z][a-z]+)")
 	var matchAlpha = regexp.MustCompile("([a-z0-9])([A-Z])")
@@ -111,7 +111,6 @@ func DateTimeFormatExample() {
 	fmt.Println(now.Format("2006/01/02 15:04:05 (-0700)"))
 	fmt.Println(now.Format("2006年01月02日 15:04"))
 	fmt.Println(now.Format("2006-02-01"))
-	fmt.Println(now.Format(time.RFC822))   // 01/02 03:04:05PM '06 -0700
 	fmt.Println(now.Format(time.ANSIC))    // Mon Jan _2 15:04:05 2006
 	fmt.Println(now.Format(time.UnixDate)) // Mon Jan _2 15:04:05 MST 2006
 	fmt.Println(now.Format(time.RubyDate)) // Mon Jan 02 15:04:05 -0700 2006
@@ -225,7 +224,7 @@ func GetAllPossibleSubstringCombinationOfAString() {
 	}
 }
 
-func SplitingExample() {
+func SplitExample() {
 	// Creating and initializing the strings
 	str1 := "Welcome, to the, online portal, of GeeksforGeeks"
 	str2 := "My dog name is Dollar"
@@ -251,7 +250,7 @@ func SplitingExample() {
 
 }
 
-func TrimingExample() {
+func TrimExample() {
 	// Creating and initializing string
 	// Using shorthand declaration
 	str1 := "!!Welcome to GeeksforGeeks !!"
@@ -310,24 +309,24 @@ func ValidDateChecker() {
 func LoopsInArray() {
 	intArray := [5]int{10, 20, 30, 40, 50}
 
-	fmt.Println("\n---------------Example 1--------------------\n")
+	fmt.Print("\n---------------Example 1--------------------\n")
 	for i := 0; i < len(intArray); i++ {
 		fmt.Println(intArray[i])
 	}
 
-	fmt.Println("\n---------------Example 2--------------------\n")
+	fmt.Print("\n---------------Example 2--------------------\n")
 	for index, element := range intArray {
 		fmt.Println(index, "=>", element)
 
 	}
 
-	fmt.Println("\n---------------Example 3--------------------\n")
+	fmt.Print("\n---------------Example 3--------------------\n")
 	for _, value := range intArray {
 		fmt.Println(value)
 	}
 
 	j := 0
-	fmt.Println("\n---------------Example 4--------------------\n")
+	fmt.Print("\n---------------Example 4--------------------\n")
 	for range intArray {
 		fmt.Println(intArray[j])
 		j++
