@@ -35,7 +35,7 @@ func (b BotMap) ExecuteQuery(command, query string) (string, error) {
 
 }
 
-func MapFunction_Example_v2() {
+func MapFunctionExampleV2() {
 	err := Bot.RegisterCommand("search me", func(query string) (string, error) {
 		fmt.Println("search", query)
 		return "searched", nil

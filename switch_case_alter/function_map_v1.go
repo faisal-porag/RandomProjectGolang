@@ -33,7 +33,7 @@ func BackEndServiceCall(data, serviceName string) (string, int) {
 	return test, code
 }
 
-func MapFunction_Example() {
+func MapFunctionExampleV1() {
 	var response string
 	var statusCode int
 	isKeyFound := IsServiceKeyExist("CASE_TWO") // CASE_TWO1
