@@ -38,12 +38,12 @@ func MapFunction_Example() {
 	var statusCode int
 	isKeyFound := IsServiceKeyExist("CASE_TWO") // CASE_TWO1
 	if isKeyFound {
-	    response, statusCode := BackEndServiceCall("hello", "CASE_TWO")
+		response, statusCode = BackEndServiceCall("hello", "CASE_TWO")
 	} else {
-	    response = "Upcoming ..."
-	    statusCode = 200
+		response = "Upcoming ..."
+		statusCode = 200
 	}
-	
+
 	fmt.Println(response)
 	fmt.Println(statusCode)
 }
