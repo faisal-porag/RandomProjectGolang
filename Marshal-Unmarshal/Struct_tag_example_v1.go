@@ -17,6 +17,12 @@ field should be considered unset when it assumes this zero value. Within the val
 part of any json struct tag, you can suffix the desired name of your field with ,omitempty to tell 
 the JSON encoder to suppress the output of this field when the field is set to the zero value. 
 The following example fixes the previous examples to no longer output empty fields:
+
+
+Some fields must be exported from structs so that other packages can correctly interact with the type. 
+However, the nature of these fields may be sensitive, so in these circumstances, we would like the JSON 
+encoder to ignore the field entirely—even when it is set. This is done using the special value - as the value argument to a json: struct tag.
+Example : Password  string    `json:"-"` // For Ignoring Private Fields
 */
 
 type User struct {
