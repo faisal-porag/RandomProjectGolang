@@ -11,11 +11,11 @@ type SParams struct {
 }
 
 var ServiceFuncMap = map[string]func(SParams) (string, int){
-	"CASE_ONE_PIN": SendMoneyService,
-	"CASE_TWO_PIN":     TopUpService,
+	"CASE_ONE_PIN": CaseOneService,
+	"CASE_TWO_PIN": CaseTwoService,
 }
 
-func SendMoneyService(p SParams) (string, int) {
+func CaseOneService(p SParams) (string, int) {
 	status := 200
 	if p.s == "" {
 		p.s = "blank"
@@ -23,7 +23,7 @@ func SendMoneyService(p SParams) (string, int) {
 	return p.s + " CASE ONE", status
 }
 
-func TopUpService(p SParams) (string, int) {
+func CaseTwoService(p SParams) (string, int) {
 	status := 200
 	if p.s == "" {
 		p.s = "blank"
