@@ -46,7 +46,7 @@ func CreateCSVFileAndWrite() {
 func ReadCSVFile() {
 	csvFile, err := os.Open("./CSV_FILES/employee.csv")
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 	}
 	fmt.Println("Successfully Opened CSV file")
 	defer func(csvFile *os.File) {
