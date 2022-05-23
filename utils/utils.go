@@ -350,3 +350,12 @@ func CheckStringHasSpecificSubString(source, data string) bool {
 
 	return strings.Contains(source, data)
 }
+
+func StringToFloat(s string){
+	const bitSize = 64 // Don't think about it to much. It's just 64 bits.
+	floatNum, err := strconv.ParseFloat(s, bitSize)
+	if err != nil {
+		log.Println(err)
+	}
+	fmt.Println(fmt.Sprintf("%f", floatNum))
+}
