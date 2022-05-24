@@ -1,4 +1,18 @@
+package raw_sql_example
 
+import (
+   "database/sql" // add this
+   "fmt"
+   "log"
+   "os"
+   _ "github.com/lib/pq" // add this
+)
+
+type product struct {
+ ID int `json:”id”`
+ Name string `json:”name”`
+ Price float64 `json:”price”`
+}
 
 func (p *product) getProduct(db *sql.DB) error {
   return db.QueryRow("SELECT name, price FROM products WHERE id=$1",
