@@ -37,7 +37,7 @@ func IsTimeBetween2Times() bool {
 }
 
 func FindCurrentTimeWithTimeZone() {
-	timeZone := "Asia/Kolkata" // timezone value
+	timeZone := "Asia/Dhaka" // timezone value
 	loc, _ := time.LoadLocation(timeZone)
 	currentTime := time.Now().In(loc)
 	fmt.Println("currentTime : ", currentTime)
