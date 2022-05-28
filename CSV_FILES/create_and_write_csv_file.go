@@ -25,7 +25,7 @@ func CreateCSVFileAndWrite() {
 	csvFile, err := os.Create("./CSV_FILES/employee.csv")
 
 	if err != nil {
-		log.Fatalf("failed creating file: %s", err)
+		log.Fatalf("file creating failed: %s", err)
 	}
 
 	csvWriter := csv.NewWriter(csvFile)
