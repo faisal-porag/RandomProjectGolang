@@ -9,7 +9,7 @@ import (
 )
 
 var wordCloudData = map[string]interface{}{
-	"java":         10000,
+	"JAVA":         10000,
 	"HTML":         8000,
 	"FAISAL":       5000,
 	"NATS":         4000,
