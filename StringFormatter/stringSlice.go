@@ -31,7 +31,7 @@ func StringSliceExample() {
 
 
 func CheckSubString(totalString, subString string) bool {
-	//TODO EXAMPLE DATA
+	//TODO EXAMPLE DATA HOW IT WORKS
 	//fmt.Println(strings.Contains("MichaelJackson", "Michael"))
     	//fmt.Println(strings.Contains("MillieBobbyBrown", "Bobby"))
     	//fmt.Println(strings.Contains("AudreyGraham", "Drake"))
