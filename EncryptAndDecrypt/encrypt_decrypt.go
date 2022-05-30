@@ -10,7 +10,7 @@ import (
 	"io"
 )
 
-var key = []byte("example key 1234")
+var key = []byte("example complex key like: GHgfdghkj52156dsfg%$^%hbhfd41")
 
 // encrypt string to base64 crypto using AES
 func encrypt(text string) string {
