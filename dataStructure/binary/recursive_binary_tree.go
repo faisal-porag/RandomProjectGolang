@@ -1,4 +1,4 @@
-package main
+package binary
 
 import (
   "fmt"
@@ -84,16 +84,17 @@ func (b *bst) inorderRec(node *bstnode) {
     }
 }
 
-func main() {
+//Recursive binary search tree example
+func RecursiveBinarySearchTreeExample() {
     bst := &bst{}
-    eg := []int{2, 5, 7, -1, -1, 5, 5}
+    eg := []int{2, 5, 7, -1, -1, 5, 5} //List of integer values 
     for _, val := range eg {
         bst.insert(val)
     }
     fmt.Printf("Printing Inorder:\n")
     bst.inorder()
     bst.reset()
-    eg = []int{4, 5, 7, 6, -1, 99, 5}
+    eg = []int{4, 5, 7, 6, -1, 99, 5} //List of integer values
     for _, val := range eg {
         bst.insert(val)
     }
