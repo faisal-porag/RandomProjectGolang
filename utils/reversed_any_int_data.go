@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-/*
+
 func ReversedAnyIntDataExample() {
 	reversedInteger := reverse(123)
 	fmt.Println(reversedInteger)
@@ -19,7 +19,7 @@ func ReversedAnyIntDataExample() {
 	reversedInteger = reverse(0)
 	fmt.Println(reversedInteger)
 }
-*/
+
 
 func reverse(x int) int {
 	sign := "positive"
