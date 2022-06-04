@@ -34,6 +34,7 @@ func ValidateToken(signedToken string) (err error) {
 		},
 	)
 	if err != nil {
+                log.Println(err)
 		return
 	}
 	claims, ok := token.Claims.(*JWTClaim)
