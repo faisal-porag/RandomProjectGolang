@@ -43,7 +43,7 @@ func ValidateToken(signedToken string) (err error) {
 		return
 	}
 	if claims.ExpiresAt < time.Now().Local().Unix() {
-		err = errors.New("token expired")
+		err = errors.New("Your token has been expired")
 		return
 	}
 	return
