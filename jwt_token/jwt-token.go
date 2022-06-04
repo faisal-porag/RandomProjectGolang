@@ -6,7 +6,7 @@ import (
 	"github.com/dgrijalva/jwt-go"
 )
 //Load the secret key from the .env file
-var jwtKey = []byte("supersecretkey")
+var jwtKey = []byte("ENTER_YOUR_SECRET_KEY_HERE")
 type JWTClaim struct {
 	Username string `json:"username"`
 	Email    string `json:"email"`
