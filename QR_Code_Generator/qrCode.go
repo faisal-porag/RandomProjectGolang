@@ -27,7 +27,7 @@ func QRCOdeGeneratorIMG() {
 	// encode the barcode as png
 	err := png.Encode(file, qrCode)
 	if err != nil {
-		log.Println(err)
+		log.Println("something went wrong:",err)
 		return
 	}
 }
