@@ -19,3 +19,9 @@ func IsExists(path string) bool {
 	
 	return false, err
 }
+
+func IsNotExists(path string) bool {
+	return (!IsExists(path))
+}
+
+
