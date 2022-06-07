@@ -38,7 +38,19 @@ func File_Get_Contents(filename string) ([]byte, error) {
 	return contents, nil
 }
 
+func File_Put_Contents(filename string, content []byte) error {
+	fp, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE, os.ModePerm)
 
+	if err != nil {
+		return err
+	}
+
+	defer fp.Close()
+
+	_, err = fp.Write(content)
+
+	return err
+}
 
 
 
