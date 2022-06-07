@@ -5,12 +5,15 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"log"
 )
 
 func IsExists(path string) bool {
    _, err := os.Stat(path)
 	if err == nil {
 	  return true, nil
+	} else {
+		log.Println(err)
 	}
 	
 	if os.IsNotExist(err) {
