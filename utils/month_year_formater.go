@@ -24,3 +24,20 @@ func MonthSlashYearFormat(mmyy string) string {
 	}
 	return "N/A"
 }
+
+
+
+func YYYYDashMMToMMSlashYYFormat(dateString string) string {
+	if dateString != "" { //INPUT EXAMPLE: 2021-07
+		splitDate := strings.Split(dateString, "-")
+		if len(splitDate) > 1 {
+			strMonth := splitDate[1]
+			strYear := splitDate[0]
+			strYear = strYear[len(strYear)-2:]    // GET LAST 2 VALUES
+			strResult := strMonth + "/" + strYear //OUTPUT EXAMPLE: 07/21
+			return strResult
+		}
+		return dateString
+	}
+	return "N/A"
+}
