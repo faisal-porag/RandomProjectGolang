@@ -359,3 +359,13 @@ func StringToFloat(s string){
 	}
 	fmt.Println(fmt.Sprintf("%f", floatNum))
 }
+
+
+func IsInputMatched(input, confirmInput string) bool {
+	if input != confirmInput{
+		return false
+	}
+	return true
+}
+
+
