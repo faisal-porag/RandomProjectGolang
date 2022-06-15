@@ -2,31 +2,30 @@ package utils
 
 import (
 	"bufio"
-	"fmt"
 	"io/ioutil"
-	"os"
 	"log"
+	"os"
 )
 
-func IsExists(path string) bool {
-   _, err := os.Stat(path)
+func IsExists(path string) (bool, error) {
+	_, err := os.Stat(path)
 	if err == nil {
-	  return true, nil
+		return true, nil
 	} else {
 		log.Println(err)
 	}
-	
+
 	if os.IsNotExist(err) {
 		return false, nil
 	}
-	
+
 	return false, err
 }
 
 func IsNotExists(path string) bool {
-	return (!IsExists(path))
+	isFound, _ := IsExists(path)
+	return isFound
 }
-
 
 func File_Get_Contents(filename string) ([]byte, error) {
 	fp, err := os.OpenFile(filename, os.O_RDWR|os.O_CREATE, os.ModePerm)
@@ -54,6 +53,3 @@ func File_Put_Contents(filename string, content []byte) error {
 
 	return err
 }
-
-
-

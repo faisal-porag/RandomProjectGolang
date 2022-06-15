@@ -3,6 +3,7 @@ package utils
 import (
 	"RandomProjectGolang/config"
 	"fmt"
+	"log"
 	"regexp"
 	"strconv"
 	"strings"
@@ -351,7 +352,7 @@ func CheckStringHasSpecificSubString(source, data string) bool {
 	return strings.Contains(source, data)
 }
 
-func StringToFloat(s string){
+func StringToFloat(s string) {
 	const bitSize = 64 // Don't think about it to much. It's just 64 bits.
 	floatNum, err := strconv.ParseFloat(s, bitSize)
 	if err != nil {
@@ -360,12 +361,9 @@ func StringToFloat(s string){
 	fmt.Println(fmt.Sprintf("%f", floatNum))
 }
 
-
 func IsInputMatched(input, confirmInput string) bool {
-	if input != confirmInput{
+	if input != confirmInput {
 		return false
 	}
 	return true
 }
-
-

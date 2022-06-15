@@ -7,8 +7,8 @@ import (
 
 var validInputPattern *regexp.Regexp
 
-func init(){
-	validInputPattern = regexp.MustCompile("^\\s|^[\/a-zA-Z0-9*#_@().:\\s-]+$")
+func init() {
+	//validInputPattern = regexp.MustCompile("^\\s|^[\/a-zA-Z0-9*#_@().:\\s-]+$")
 }
 
 func IsValidInput(input string) bool {
