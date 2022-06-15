@@ -3,6 +3,7 @@ package utils
 import (
 	"fmt"
 	"regexp"
+	"mail"
 )
 
 var minPINLength = 4
@@ -17,4 +18,9 @@ func ValidatePhoneNumber(number string) bool {
 
 func ValidatePinNumber(number string) bool {
 	return PinNumberRe.MatchString(number)
+}
+
+func IsValidEmailAddress(email string) bool {
+    _, err := mail.ParseAddress(email)
+    return err == nil
 }
