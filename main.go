@@ -7,16 +7,23 @@ import (
 	pdfGen "RandomProjectGolang/PDF_Generator"
 	qrCode "RandomProjectGolang/QR_Code_Generator"
 	comp "RandomProjectGolang/composition"
+	"RandomProjectGolang/config"
 	"RandomProjectGolang/utils"
 	"fmt"
 	"log"
 	"net/http"
 	"os/exec"
+	"time"
 )
 
 func main() {
 
 	fmt.Println("Random services in GolLang")
+
+	loc, _ := time.LoadLocation(config.Config.TimeZone)
+	time.Local = loc
+
+	//log.Println(time.Local)
 
 	//TODO JSON FILE READ
 	jsonRead.ReadJsonFile() // Console print
