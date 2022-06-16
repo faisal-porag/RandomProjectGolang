@@ -7,3 +7,12 @@ First install all package by bellow command
 go get
 ```
 
+
+## Error Log Print 
+```shell
+go get github.com/rs/zerolog/log
+```
+
+```shell
+log.Error().Err(err).Msg("write your error message ....")
+```
