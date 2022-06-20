@@ -10,6 +10,8 @@ import (
 /*
 NOTE: Some Instructions to use minio
 -------------------------------------
+The MinIO Go Client SDK provides simple APIs to access any Amazon S3 compatible object storage.
+
 Download from Github
 go get github.com/minio/minio-go/v7
 
