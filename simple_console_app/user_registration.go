@@ -3,8 +3,11 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"sync"
 	"time"
 )
+
+var wg sync.WaitGroup
 
 func main() {
 
@@ -19,20 +22,24 @@ func main() {
 	fmt.Println("Enter First Name")
 	fmt.Scan(&firstName)
 
-	fmt.Println("Enter First Name")
+	fmt.Println("Enter Last Name")
 	fmt.Scan(&lastName)
 
-	fmt.Println("Enter Email Name")
+	fmt.Println("Enter Email Address")
 	fmt.Scan(&email)
-	sendOTPEmail(otp)
 
-	fmt.Println("Enter Age Name")
+	wg.Add(1)
+	go sendOTPEmail(otp)
+
+	fmt.Println("Enter Your Age")
 	fmt.Scan(&age)
 
-	fmt.Println("Ënter City")
+	fmt.Println("Enter Your City Name")
 	fmt.Scan(&city)
 
-	fmt.Println("Enter OTP code Recieved")
+	wg.Wait()
+
+	fmt.Println("Enter OTP Code You Recieved")
 	fmt.Scan(&otpTyped)
 
 	if otp == otpTyped {
@@ -46,5 +53,5 @@ func main() {
 func sendOTPEmail(otp int) {
 	time.Sleep(10 * time.Second)
 	fmt.Println("Your OTP code is : ", otp)
-	return
+	wg.Done()
 }
