@@ -8,11 +8,8 @@ import (
 	"fmt"
 )
 
-var PrivateKey, keyGenerateError = rsa.GenerateKey(rand.Reader, 1024)
+var PrivateKey, _ = rsa.GenerateKey(rand.Reader, 1024)
 
-if keyGenerateError != nil {
-  log.Println(keyGenerateError)
-}
 
 func CheckError(e error) {
 	if e != nil {
