@@ -8,7 +8,9 @@ import (
 	"fmt"
 )
 
-var PrivateKey, _ = rsa.GenerateKey(rand.Reader, 1024)
+var secretKey = "m=p4tR}~yng[7+$"
+var bitSize = 1024
+var PrivateKey, GenerateKeyError = rsa.GenerateKey(rand.Reader, bitSize)
 
 
 func CheckError(e error) {
@@ -18,7 +20,7 @@ func CheckError(e error) {
 }
 
 func RSA_OAEP_Encrypt(secretMessage string, key rsa.PublicKey) string {
-	label := []byte("OAEP Encrypted")
+	label := []byte(secretKey)
 	rng := rand.Reader
 	ciphertext, err := rsa.EncryptOAEP(sha256.New(), rng, &key, []byte(secretMessage), label)
 	CheckError(err)
@@ -27,7 +29,7 @@ func RSA_OAEP_Encrypt(secretMessage string, key rsa.PublicKey) string {
 
 func RSA_OAEP_Decrypt(cipherText string, privKey rsa.PrivateKey) string {
 	ct, _ := base64.StdEncoding.DecodeString(cipherText)
-	label := []byte("OAEP Encrypted")
+	label := []byte(secretKey)
 	rng := rand.Reader
 	plaintext, err := rsa.DecryptOAEP(sha256.New(), rng, &privKey, ct, label)
 	CheckError(err)
