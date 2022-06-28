@@ -367,3 +367,15 @@ func IsInputMatched(input, confirmInput string) bool {
 	}
 	return true
 }
+
+//CHECK ARRAY CONTAINTS SPECIFIC VALUE
+func Contains(slice []string, element string) bool {
+   for _, i := range slice {
+     if i == element {
+       return true
+     }
+   }
+   return false
+}
+
+
