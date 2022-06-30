@@ -5,7 +5,7 @@ import (
 	"crypto/rsa"
 	"crypto/sha256"
 	"encoding/base64"
-	"fmt"
+	"log"
 )
 
 var secretKey = "m=p4tR}~yng[7+$"
@@ -13,10 +13,12 @@ var bitSize = 1024
 var PrivateKey, GenerateKeyError = rsa.GenerateKey(rand.Reader, bitSize)
 
 
-func CheckError(e error) {
-	if e != nil {
-		fmt.Println(e.Error())
+func CheckError(err error) error {
+	if err != nil {
+		log.Println(err.Error())
+		return err.Error()
 	}
+	return nil
 }
 
 func RSA_OAEP_Encrypt(secretMessage string, key rsa.PublicKey) string {
