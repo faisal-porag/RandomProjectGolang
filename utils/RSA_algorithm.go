@@ -12,28 +12,33 @@ var secretKey = "m=p4tR}~yng[7+$"
 var bitSize = 1024
 var PrivateKey, GenerateKeyError = rsa.GenerateKey(rand.Reader, bitSize)
 
-
 func CheckError(err error) error {
 	if err != nil {
 		log.Println(err.Error())
-		return err.Error()
+		return err
 	}
 	return nil
 }
 
-func RSA_OAEP_Encrypt(secretMessage string, key rsa.PublicKey) string {
+func RSAOAEPEncrypt(secretMessage string, key rsa.PublicKey) string {
 	label := []byte(secretKey)
 	rng := rand.Reader
 	ciphertext, err := rsa.EncryptOAEP(sha256.New(), rng, &key, []byte(secretMessage), label)
-	CheckError(err)
+	err = CheckError(err)
+	if err != nil {
+		return ""
+	}
 	return base64.StdEncoding.EncodeToString(ciphertext)
 }
 
-func RSA_OAEP_Decrypt(cipherText string, privKey rsa.PrivateKey) string {
+func RSAOAEPDecrypt(cipherText string, privateKey rsa.PrivateKey) string {
 	ct, _ := base64.StdEncoding.DecodeString(cipherText)
 	label := []byte(secretKey)
 	rng := rand.Reader
-	plaintext, err := rsa.DecryptOAEP(sha256.New(), rng, &privKey, ct, label)
-	CheckError(err)
+	plaintext, err := rsa.DecryptOAEP(sha256.New(), rng, &privateKey, ct, label)
+	err = CheckError(err)
+	if err != nil {
+		return ""
+	}
 	return string(plaintext)
 }
