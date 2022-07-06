@@ -7,6 +7,8 @@ import (
 	"net/smtp"
 )
 
+//TODO SOURCE: https://medium.com/@dhanushgopinath/sending-html-emails-using-templates-in-golang-9e953ca32f3d
+
 var auth smtp.Auth
 
 func SendEmailTest() {
