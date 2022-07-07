@@ -43,9 +43,9 @@ func main() {
 	fmt.Scan(&otpTyped)
 
 	if otp == otpTyped {
-		fmt.Println("Registration Successfully Completed")
+		fmt.Println("Your Registration Successfully Completed.")
 	} else {
-		fmt.Println("Registration failed")
+		fmt.Println("Your Registration Failed. Please Enter Valid OTP Code.")
 	}
 
 }
