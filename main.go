@@ -10,6 +10,7 @@ import (
 	"RandomProjectGolang/config"
 	"RandomProjectGolang/utils"
 	"fmt"
+	"go.uber.org/zap"
 	"log"
 	"net/http"
 	"os/exec"
@@ -17,8 +18,19 @@ import (
 )
 
 func main() {
+	logger, _ := zap.NewDevelopment()
+	defer func(logger *zap.Logger) {
+		err := logger.Sync()
+		if err != nil {
+			log.Println(err)
+		}
+	}(logger)
+	logger.Info("Random services in GolLang With ZAP Logger!")
 
-	fmt.Println("Random services in GolLang")
+	//logger.Warn("ZAP logger warn log!")
+	//logger.Error("ZAP logger error log!")
+	//logger.Fatal("ZAP logger fatal log!")
+	//logger.Debug("ZAP logger debug log!")
 
 	loc, _ := time.LoadLocation(config.Config.TimeZone)
 	time.Local = loc

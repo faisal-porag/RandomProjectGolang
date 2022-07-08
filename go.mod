@@ -9,4 +9,5 @@ require (
 	github.com/jung-kurt/gofpdf v1.16.2
 	github.com/oklog/ulid v1.3.1
 	github.com/rs/zerolog v1.27.0 // indirect
+	go.uber.org/zap v1.21.0 // indirect
 )
