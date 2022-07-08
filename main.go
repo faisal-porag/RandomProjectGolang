@@ -54,8 +54,8 @@ func main() {
 	fmt.Println("Generated UUID:")
 	fmt.Printf("%s", newUUID)
 
-	//TODO GenerateUlidID
-	id := utils.GenerateUlidID()
+	//TODO GenerateULID
+	id := utils.GenerateULIDID()
 	fmt.Println(id)
 
 	isValid := utils.ValidatePinNumber("878")
