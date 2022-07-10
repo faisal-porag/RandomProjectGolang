@@ -9,6 +9,7 @@ import (
 	comp "RandomProjectGolang/composition"
 	"RandomProjectGolang/config"
 	"RandomProjectGolang/utils"
+	"encoding/json"
 	"fmt"
 	"go.uber.org/zap"
 	"log"
@@ -18,20 +19,37 @@ import (
 )
 
 func main() {
-	logger, _ := zap.NewDevelopment()
+	rawJSON := []byte(`{
+	   "level": "debug",
+	   "encoding": "json",
+	   "outputPaths": ["stdout"],
+	   "errorOutputPaths": ["stderr"],
+	   "encoderConfig": {
+		 "messageKey": "message",
+		 "levelKey": "level",
+		 "levelEncoder": "lowercase"
+	   }
+	 }`,
+	)
+	var cfg zap.Config
+	if err := json.Unmarshal(rawJSON, &cfg); err != nil {
+		log.Fatal(err)
+	}
+	logger, err := cfg.Build()
+	if err != nil {
+		log.Fatal(err)
+	}
 	defer func(logger *zap.Logger) {
-		err := logger.Sync()
-		if err != nil {
-			log.Println(err)
+		errLogger := logger.Sync()
+		if errLogger != nil {
+			log.Fatal(errLogger)
 		}
 	}(logger)
 	logger.Info("Random services in GolLang With ZAP Logger!")
+	//logger.Warn("Custom logger is warning you!")
+	//logger.Error("Let's do error instead.")
 
-	//logger.Warn("ZAP logger warn log!")
-	//logger.Error("ZAP logger error log!")
-	//logger.Fatal("ZAP logger fatal log!")
-	//logger.Debug("ZAP logger debug log!")
-
+	//Location and time zone configured
 	loc, _ := time.LoadLocation(config.Config.TimeZone)
 	time.Local = loc
 
@@ -86,9 +104,9 @@ func main() {
 	http.HandleFunc("/create-qr-code", qrCode.CreateQRCode)
 	http.HandleFunc("/view-qr-code/", qrCode.ViewQRCode)
 
-	err := http.ListenAndServe(":8081", nil)
-	if err != nil {
-		log.Println(err)
+	errListener := http.ListenAndServe(":8081", nil)
+	if errListener != nil {
+		log.Println(errListener)
 		return
 	}
 }
