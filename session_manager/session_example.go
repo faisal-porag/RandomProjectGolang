@@ -75,7 +75,16 @@ func (manager *Manager) SessionDestroy(w http.ResponseWriter, r *http.Request){
 }
 
 
+func init() {
+    go globalSessions.GC()
+}
 
+func (manager *Manager) GC() {
+    manager.lock.Lock()
+    defer manager.lock.Unlock()
+    manager.provider.SessionGC(manager.maxlifetime)
+    time.AfterFunc(time.Duration(manager.maxlifetime), func() { manager.GC() })
+}
 
 
 
