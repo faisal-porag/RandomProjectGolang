@@ -17,6 +17,13 @@ type Manager struct {
     SessionID() string                //back current sessionID
 }
 
+ type Provider interface {
+    SessionInit(sid string) (Session, error)
+    SessionRead(sid string) (Session, error)
+    SessionDestroy(sid string) error
+    SessionGC(maxLifeTime int64)
+}
+
 
 func NewManager(provideName, cookieName string, maxlifetime int64) (*Manager, error) {
     provider, ok := provides[provideName]
