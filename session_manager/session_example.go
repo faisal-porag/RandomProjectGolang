@@ -44,4 +44,39 @@ func (manager *Manager) SessionStart(w http.ResponseWriter, r *http.Request) (se
     return
 }
 
+// Destroy sessionid
+func (manager *Manager) SessionDestroy(w http.ResponseWriter, r *http.Request){
+    cookie, err := r.Cookie(manager.cookieName)
+    if err != nil || cookie.Value == "" {
+        return
+    } else {
+        manager.lock.Lock()
+        defer manager.lock.Unlock()
+        manager.provider.SessionDestroy(cookie.Value)
+        expiration := time.Now()
+        cookie := http.Cookie{Name: manager.cookieName, Path: "/", HttpOnly: true, Expires: expiration, MaxAge: -1}
+        http.SetCookie(w, &cookie)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
