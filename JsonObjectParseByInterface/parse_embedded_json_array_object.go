@@ -3,10 +3,12 @@ package JsonObjectParseByInterface
 import (
 	"encoding/json"
 	"fmt"
-  "log"
+	"log"
 )
+
 // TODO Parsing Embedded object in Array of JSON
-func JsonObjectParsing() {
+
+func ParseEmbeddedJsonArrayObjectExample() {
 	//Simple Employee JSON object which we will parse
 	empArray := `[
 		{
