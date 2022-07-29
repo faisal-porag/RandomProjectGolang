@@ -21,7 +21,7 @@ func ParseEmbeddedJsonObjectExample() {
 		}
 	}`
 
-	// Declared an empty interface
+	// Declared an empty interface 
 	var result map[string]interface{}
 
 	// Unmarshal or Decode the JSON to the interface.
@@ -36,3 +36,4 @@ func ParseEmbeddedJsonObjectExample() {
 		"\nDesignation :", result["designation"],
 		"\nAddress :", address["city"], address["state"], address["country"])
 }
+
