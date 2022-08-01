@@ -17,6 +17,7 @@ func taskWithParams(a int, b string) {
 
 func main() {
 	// Do jobs without params
+	//Schedulic task
 	gocron.Every(1).Second().Do(task)
 	gocron.Every(2).Seconds().Do(task)
 	gocron.Every(1).Minute().Do(task)
