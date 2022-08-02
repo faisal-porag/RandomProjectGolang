@@ -14,17 +14,21 @@
 ^(0[1-9]|[12][0-9]|3[01])[.](0[1-9]|1[012])[.](19|20)\d\d$
 
 
-//Credit Card Date (MM/YY)
+// Credit Card Date (MM/YY)
 ^(0[1-9]|1[0-2])\/?([0-9]{2})$
 
 
-//Date format (Example: mmyy, 1294)
+// Date format (Example: mmyy, 1294)
 ^(0[1-9]|1[0-2])([0-9]{2})$
 
 
-//Amount Greater Equal 1 (Example: 1, 1.45, 10.00, 654.0)
+// Amount Greater Equal 1 (Example: 1, 1.45, 10.00, 654.0)
 ^[1-9]\d*(\.\d{0,2})?$
 
 
+// Alpha numeric but not only zero allowed
+^!0|[a-zA-Z1-9][a-zA-Z0-9]*$
 
 
+// Number greater than zero | Can't start with zero
+^[1-9][0-9]*$
