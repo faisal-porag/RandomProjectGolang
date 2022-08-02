@@ -1,3 +1,5 @@
+// SOME GOLANG REGEX
+
 // Date Format (Example: ddmmyyyy, 25071992)
 ^(0[1-9]|[12][0-9]|3[01])(0[1-9]|1[012])(18|19|20|21)\d\d$
 
