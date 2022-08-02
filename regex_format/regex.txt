@@ -32,3 +32,10 @@
 
 // Number greater than zero | Can't start with zero
 ^[1-9][0-9]*$
+
+
+// Allowed only 1-7
+^[1-7]$
+
+
+
