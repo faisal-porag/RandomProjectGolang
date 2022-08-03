@@ -42,6 +42,25 @@ OR
 ^[1-7]$
 
 
-//Mobile No BD (Example: 016xxxxxxxx)
+// Mobile No BD (Example: 016xxxxxxxx)
 ^01[3-9][0-9]{8}$
+
+
+
+//
+^[A-Za-z]{6}$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
