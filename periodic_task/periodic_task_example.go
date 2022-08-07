@@ -8,7 +8,8 @@ import (
 )
 
 func task() {
-	fmt.Println("I am running task.")
+        log.Println("task...")
+	fmt.Println("I am running task....")
 }
 
 func taskWithParams(a int, b string) {
