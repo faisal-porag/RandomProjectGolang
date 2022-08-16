@@ -15,7 +15,7 @@ type Page struct {
 }
 
 func CreateQRCode(w http.ResponseWriter, r *http.Request) {
-	p := Page{Title: "QR Code Generator"}
+	p := Page{Title: "QR Code Generator Service"}
 
 	t, _ := template.ParseFiles("./QR_Code_Generator/qr_code_generator.html")
 	err := t.Execute(w, p)
