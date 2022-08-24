@@ -16,3 +16,26 @@ go get github.com/rs/zerolog/log
 ```shell
 log.Error().Err(err).Msg("write your error message ....")
 ```
+
+
+
+```shell
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+)
+
+func main() {
+	// an arbitrary json string
+	jsonString := `{"name":"Android", "version":13, "code":1}`
+
+	var jsonMap map[string]interface{}
+	json.Unmarshal([]byte(jsonString), &jsonMap)
+
+	fmt.Println(jsonMap)
+	// access it like a map
+	fmt.Println(jsonMap["name"])
+}
+```
