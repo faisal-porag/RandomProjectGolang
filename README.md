@@ -39,3 +39,17 @@ func main() {
 	fmt.Println(jsonMap["name"])
 }
 ```
+
+
+#### Apache Kafka and Golang 
+
+https://medium.com/swlh/apache-kafka-with-golang-227f9f2eb818
+
+
+
+
+
+
+
+
+
