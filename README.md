@@ -49,7 +49,7 @@ https://medium.com/swlh/apache-kafka-with-golang-227f9f2eb818
 
 
 ##### GOLANG Deployment Note 
-`
+```
 To deploy a Go project in a live server, you can follow these steps:
 
 Choose a hosting provider: You can choose a cloud service provider like AWS, Google Cloud, or Heroku or use a virtual private server (VPS) provider like DigitalOcean, Linode, or Vultr.
@@ -67,7 +67,7 @@ Configure a reverse proxy: You can use a reverse proxy like Nginx or Apache to h
 Monitor and maintain the server: Regularly monitor the server to ensure that the Go binary is running smoothly and make any necessary updates or fixes.
 
 These are the general steps to deploy a Go project in a live server. The exact steps may vary depending on your hosting provider and the specifics of your project.
-`
+```
 
 
 
