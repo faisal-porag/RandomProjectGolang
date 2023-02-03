@@ -48,6 +48,28 @@ https://medium.com/swlh/apache-kafka-with-golang-227f9f2eb818
 
 
 
+##### GOLANG Deployment Note 
+`
+To deploy a Go project in a live server, you can follow these steps:
+
+Choose a hosting provider: You can choose a cloud service provider like AWS, Google Cloud, or Heroku or use a virtual private server (VPS) provider like DigitalOcean, Linode, or Vultr.
+
+Prepare your Go project: Make sure that your Go project can be built and runs without any issues on your local machine. You should also make any necessary changes to the configuration files to make the project run properly in the production environment.
+
+Build the project: Build the binary file for your Go project using the go build command.
+
+Copy the binary to the server: Use a secure file transfer protocol (SFTP) client to upload the binary file to your live server.
+
+Start the binary: Use a terminal to log in to your live server and start the binary file using the ./<binary_name> command.
+
+Configure a reverse proxy: You can use a reverse proxy like Nginx or Apache to handle incoming traffic and direct it to your Go binary. This will allow you to handle HTTPS traffic, manage traffic routing, and handle other tasks.
+
+Monitor and maintain the server: Regularly monitor the server to ensure that the Go binary is running smoothly and make any necessary updates or fixes.
+
+These are the general steps to deploy a Go project in a live server. The exact steps may vary depending on your hosting provider and the specifics of your project.
+`
+
+
 
 
 
